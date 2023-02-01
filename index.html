@@ -8,8 +8,9 @@
         <script>
             function attempt() {
                 var tester = "Your mom";
-                var input = document.getElementById("inputKBD").value;
-                var found = tester.match(input);
+                //var input = document.getElementById("inputKBD").value;
+                var regExp = "mom";
+                var found = tester.match(regExp);
 
                 console.log(found);
             }
