@@ -4,6 +4,17 @@
     <title>HI</title>
     <body>
         <input type = "text" id = "inputKBD" name = "test">
-        <header>your mom</header>
+        <header>Your mom</header>
+        <script>
+            function attempt() {
+                var tester = "Your mom";
+                var input = document.getElementById("inputKBD").value;
+                var found = tester.match(input);
+
+                console.log(found);
+            }
+        </script>
+   
+
     </body>
 </html>
