@@ -13,5 +13,5 @@ fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
     .then((data) => {
         let quote = data;
     })
-	.then(response => console.log(data))
+	.then(response => console.log(quote))
 	.catch(err => console.error(err));
