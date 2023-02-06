@@ -6,7 +6,7 @@ const options = {
 	}
 };
 
-fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
+fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?category=movies', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
