@@ -7,11 +7,10 @@ const options = {
 };
 
 fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
-	.then(response => {
-        return response.json();
-    })
-    .then((data) => {
-        let quote = data;
-    })
-	.then(response => console.log(quote))
+	.then(response => response.json())
+	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
+    const response =  await fetch('/quote');
+    const blob = await response.blob();
+    document.getElementById('text').textContent(blob);
