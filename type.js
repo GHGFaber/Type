@@ -12,9 +12,10 @@ fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
 	.catch(err => console.error(err));
 
 async function getQuote(){
+    var quote = document.getElementById('text');
     const response =  await fetch('/quote');
     const blob = await response.blob();
-    document.getElementById('text').textContent(blob);
+    quote.textContent = blob;
 }
 
 getQuote();
