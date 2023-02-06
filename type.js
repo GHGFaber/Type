@@ -12,6 +12,11 @@ fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?category=movies', o
 	.catch(err => console.error(err));
 
 async function getQuote(){
+	fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?category=movies', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+	
     const response =  await fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options);
 	const data = await response.json();
 
