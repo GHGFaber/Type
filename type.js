@@ -16,6 +16,8 @@ async function getQuote(){
 	const data = await response.json();
 	const { quote } = data;
 	console.log(data.quote);
+
+	return data.quote
 }
 
 getQuote();
