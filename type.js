@@ -10,9 +10,9 @@ async function getQuote(){
 
     const response =  await fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?category=movies', options);
 	const data = await response.json();
-
-	console.log(data[0].quote);
-	document.getElementById('text').textContent = data[0].quote;
+	console.log(data);
+	//document.getElementById('text').textContent = data[0].quote;
+	//document.getElementById('source').textContent = data[0].
 }
 
 getQuote();
