@@ -15,8 +15,7 @@ async function getQuote(){
     const response =  await fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options);
 	const data = await response.json();
 	const { quote } = data;
-	console.log(data.quote);
-
+	console.log(quote);
 	return data.quote
 }
 
