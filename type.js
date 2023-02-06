@@ -1,15 +1,13 @@
-const url = "https://api.api-ninjas.com/v1/quotes?category=movies";
-fetch(url, {
-  method: "GET",
-  withCredentials: true,
-  headers: {
-    "X-Auth-Token": "xCy2+7K4+sCujiFJWTqYMg==KLgD8GTdYqlJ5WCE"
-  }
-})
-  .then(resp => resp.json())
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
+const options = {
+	method: 'GET',
+	headers: {
+		Authorization: 'Token token=yd8WzkWNEEzGtqMSgiZBrwtt',
+		'X-RapidAPI-Key': 'fea301b3a8mshb2daee565fe6347p10e567jsn442367504eaa',
+		'X-RapidAPI-Host': 'juanroldan1989-moviequotes-v1.p.rapidapi.com'
+	}
+};
+
+fetch('https://juanroldan1989-moviequotes-v1.p.rapidapi.com/api/v1/quotes?actor=Al%20Pacino', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
