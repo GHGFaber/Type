@@ -7,6 +7,11 @@ const options = {
 };
 
 fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
+	.then(response => {
+        return response.json();
+    })
+    .then((data) => {
+        let quote = data;
+    })
+	.then(response => console.log(data))
 	.catch(err => console.error(err));
