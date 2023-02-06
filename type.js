@@ -1,1 +1,1 @@
-console.log(fetch('http://example.com/movies.json'));
+console.log("hello");
