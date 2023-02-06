@@ -13,7 +13,7 @@ fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options)
 
 async function getQuote(){
     var quote = document.getElementById('text');
-    const response =  await fetch('/quote');
+    const response =  await fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes', options);
     const blob = await response.blob();
     quote.textContent = blob;
 }
