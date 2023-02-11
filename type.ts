@@ -14,5 +14,8 @@ async function getQuote(){
 
 }
 
-getQuote();
-getQuote();
+for(let i = 0; i < 5; i++)
+{
+	setTimeout(getQuote, 5000);
+	getQuote();
+}

@@ -10,5 +10,9 @@ async function getQuote() {
     const data = await response.json();
     document.getElementById('text').textContent = data[0].quote;
 }
-getQuote();
-getQuote();
+
+for(let i = 0; i < 5; i++)
+{
+	setTimeout(getQuote, 5000);
+	getQuote();
+}
