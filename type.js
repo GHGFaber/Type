@@ -13,6 +13,6 @@ async function getQuote() {
 
 for(let i = 0; i < 5; i++)
 {
-	setTimeout(getQuote, 5000);
+	setTimeout(getQuote, 100000);
 	getQuote();
 }
