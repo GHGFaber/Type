@@ -14,4 +14,8 @@ async function getQuote(){
 
 }
 
+function format(word){
+	return `<div class = "word">${word.split('').join('</span><span class = letter')}</div>`;
+}
+
 getQuote();
