@@ -5,17 +5,24 @@ const options = {
 		'X-RapidAPI-Host': 'quotes-by-api-ninjas.p.rapidapi.com'
 	}
 };
-
+let quote = [];
 async function getQuote(){
 
     const response =  await fetch('https://quotes-by-api-ninjas.p.rapidapi.com/v1/quotes?category=movies', options);
 	const data = await response.json();
-	document.getElementById('text').textContent = data[0].quote;
-
+	quote = data[0].quote;
+	Game();
 }
 
-function format(word){
-	return `<div class = "word">${word.split('').join('</span><span class = letter')}</div>`;
+function format(text){
+	return `<div class = "word">
+	<span class = "letter">
+	${text.split('').join('</span><span class = letter>')}
+	</span></div>`;
+}
+function Game(){
+	//document.getElementById('text').innerHTML = quote;
+	document.getElementById('text').innerHTML += format(quote);
 }
 
 getQuote();

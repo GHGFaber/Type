@@ -1,6 +1,36 @@
-h1 {
-    color: yellow;
-}
 body {
     background-color: black;
+}
+#text{
+    color: grey;
+    filter: blur(1px);
+    font-size: 40px;
+}
+
+div#Game{
+    margin: auto;
+    margin-top:25%;
+    width: 50%;
+    padding: 10px;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#cursor{
+    width:2px;
+    height: 40px;
+    position:fixed;
+    background-color: blue;
+    top: 450px;
+    left: 375px;
+    animation: blink 1s infinite;
 }
