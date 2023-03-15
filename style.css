@@ -41,3 +41,6 @@ div#Game{
 .wrong{
     color: red;
 }
+.right{
+    color: white;
+}
