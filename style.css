@@ -14,8 +14,8 @@ div#Game{
     margin-top:25%;
     padding: 10px;
     line-height: 35px;
-    height: 105px;
-    overflow: hidden;
+    height: fit-content;
+    
 }
 
 @keyframes blink{
