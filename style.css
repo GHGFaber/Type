@@ -3,19 +3,27 @@ body {
 }
 div.word{
     color: grey;
-    filter: blur(1px);
     font-size: 40px;
     display: inline-block;
     padding: 10px 5px;
 }
-
+img#profile{
+    height:50px;
+    width: 50px;
+    float: right;
+}
 div#Game{
+    line-height: 35px;
+    overflow: hidden;
+    height: 103px;
+}
+
+div#QGame{
     margin: auto;
     margin-top:25%;
     padding: 10px;
     line-height: 35px;
     height: fit-content;
-    
 }
 
 @keyframes blink{
@@ -30,12 +38,12 @@ div#Game{
     }
 }
 #cursor{
+    top: 45px;
+    left: 10px;
     width:2px;
-    height: 40px;
-    position:fixed;
+    height: 30px;
     background-color: blue;
-    top: 450px;
-    left: 375px;
+    position: fixed;
     animation: blink 1s infinite;
 }
 .wrong{
@@ -43,4 +51,19 @@ div#Game{
 }
 .right{
     color: white;
+}
+#navBar{
+    justify-items: center;
+    display: flex;
+    align-items: center;
+}
+#button{
+    margin-left: 50%;
+}
+#button button{
+    height: auto;
+    background-color: aqua;
+}
+#button button:hover{
+    transition: 5s;
 }

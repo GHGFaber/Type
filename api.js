@@ -14,6 +14,11 @@ async function getQuote(){
 	console.log(quote);
 	Game();
 }
+
+	function refreshPage(){
+		window.location.reload();
+	}
+
 	function addClass(el, name){
 		el.className += ' '+name;
 	}
@@ -32,7 +37,7 @@ async function getQuote(){
 	}
 
 	//keyboard events
-	document.getElementById('Game').addEventListener('keyup', ev => {
+	document.getElementById('QGame').addEventListener('keyup', ev => {
 		const key = ev.key;
 		const currentLetter = document.querySelector('.letter.current');
 		const expected = currentLetter?.innerHTML || ' ';	//if no current letter, we need a space

@@ -3,15 +3,22 @@
     <link rel="stylesheet" href="style.css">
     <title>HI</title>
     <body>
+        <div id="logo"></div>
+        <a href = "login.html"><img id = "profile" src = "defprofile.png"></a>
         <div id = "newGame">
-        <div id = "time"> 30 </div>
-            <div id = "button">
-                <button onclick="refreshPage()"> New game</button>
+            <div id = "time">30</div>
+            <div id = "Game" tabindex="0">
+                <div id = "text"></div>
+                <div id = "cursor"></div>
             </div>
-        </div>
-        <div id = "Game" tabindex="0">
-            <div id = "text"></div>
-            <div id = "cursor"></div>
+            <div id = "navBar">
+                <div id = "button">
+                    <button onclick="refreshPage()"> Reload </button>
+                </div>
+                <div id = "button1">
+                    <button onclick="window.location.href= 'https://www.cs.csub.edu/~mfuentes/3390/Type/quote.html'"> Quotes </button>
+                </div>
+            </div>
         </div>
     </body>
     <script src="type.js"></script>

@@ -1,5 +1,7 @@
 const words = 'negative season due chest point smile electric bicycle term dirt mark doll will strong cook noun bean myself band shelter brush meat snow object once including wonder taken attack fairly early if event brass coach pink discuss port beauty clear cow select popular skill usually face basis water pass examine connected without hour split prove weather bigger,caught,agree,clock,are,attempt,therefore,hang,milk,home,special,thank,trouble,thousand,aloud,name,follow,eight,evening,root,success,stone,made,poem,frame,organization,earn,broke,larger,whether,coffee,distant,congress,silence,cut,broken,studying,left,language,look,getting,state,development,percent,quietly,purple,ground,vertical,rabbit,series,gone,fireplace,consider,indicate,teacher,paid,struck,universe,soft,needs,stick,jungle,wave,pond,truck,drawn,stand,chose,imagine,tightly,buried,mile,away,burn,steel,fence,wall,whispered,slipped,receive,cap,keep,log,together,written,story,list,fire,search,arrive,hello,hand,potatoes,hurt,claws,belong,worker,onlinetools,nearly,now,medicine,river,height,been,flow,pupil,college,situation,how,than exclaimed sudden frog cell increase idea contrast official greater land raise growth dog exciting fought car break unknown worried lot practical well visit apartment favorite fat'.split(',').join(' ').split(' ');
 const wordsSize = words.length;
+const gameTime = 30 * 1000;
+window.timer = null;
 
 function refreshPage(){
 	window.location.reload();
@@ -27,6 +29,7 @@ function Game(){
 	}
 	addClass(document.querySelector('.word'), 'current');
 	addClass(document.querySelector('.letter'), 'current');
+	window.timer = null;
 }
 //keyboard events
 document.getElementById('Game').addEventListener('keyup', ev => {
@@ -36,8 +39,24 @@ document.getElementById('Game').addEventListener('keyup', ev => {
 	const letter = key.length === 1 && key !== ' ';
 	const space = key === ' ';
 	const currentWord = document.querySelector('.word.current');
-
+	const backspace = key === 'Backspace';
+	const isFirstLetter =  currentLetter === currentWord.firstChild;
+	//const isLastLetter =  currentLetter === currentWord.lastChild;
+	const extra = document.querySelector('.letter.extra');
 	console.log(key,expected);
+
+	if (!window.timer && letter) {
+		window.timer = setInterval(() => {
+			if(!window.start) {
+				window.start = (new Date()).getTime();
+			}
+			const currentTime = (new Date()).getTime();
+			const millisPassed = currentTime - window.start
+			const secondsPassed = Math.round(millisPassed/1000);
+			const secondsLeft = (gameTime / 1000) - secondsPassed 
+			document.getElementById('time').innerHTML = secondsLeft + '';
+		}, 1000);
+	}
 
 	if(letter){
 		if(currentLetter){
@@ -57,7 +76,7 @@ document.getElementById('Game').addEventListener('keyup', ev => {
 
 	if(space){
 		if(expected !== ' '){
-			const wrongletters = [...document.querySelectorAll('.word.current .letter:not(.right)')];
+			const wrongletters = [...document.querySelectorAll('.word.current.letter:not(.right)')];
 			wrongletters.forEach(letter => {
 				addClass(letter, 'wrong');
 			});
@@ -68,7 +87,50 @@ document.getElementById('Game').addEventListener('keyup', ev => {
 			removeClass(currentLetter, 'current');
 		}
 		addClass(currentWord.nextSibling.firstChild, 'current');
+	}
+	if(backspace){
+		if(currentLetter && isFirstLetter){
+			//prev word current last letter current
+			removeClass(currentWord, 'current');
+			addClass(currentWord.previousSibling, 'current');
+			removeClass(currentLetter, 'current');
+			addClass(currentWord.previousSibling.lastChild, 'current');
+			removeClass(currentWord.previousSibling.lastChild, 'wrong');
+			removeClass(currentWord.previousSibling.lastChild, 'right');
 		}
-	});
+		if(currentLetter && !isFirstLetter){
+			//move back one letter and invalidate
+			removeClass(currentLetter, 'current');
+			addClass(currentLetter.previousSibling, 'current');
+			removeClass(currentLetter.previousSibling, 'wrong');
+			removeClass(currentLetter.previousSibling, 'right');
+		}
+		if(!currentLetter){
+			//move back one letter and invalidate
+			addClass(currentWord.lastChild, 'current');
+			removeClass(currentWord.lastChild, 'wrong');
+			removeClass(currentWord.lastChild, 'right');
+		}
+		if(extra){
+			//const extraLetter = document.getElementById('.extra');
+			currentWord.removeChild(currentWord.lastChild);
+		}
+	}
+	
+	//move lines / words
+
+	if (currentWord.getBoundingClientRect().top > 50) {
+		const text = document.getElementById('text');
+		const margin = parseInt(text.style.marginTop || '0px');
+		text.style.marginTop = (margin - 55) + 'px';
+	}
+
+	//cursor handling
+	const nextLetter =  document.querySelector('.letter.current');
+	const nextWord =  document.querySelector('.word.current');
+	const cursor = document.getElementById('cursor');
+	cursor.style.top = ( nextLetter || nextWord ).getBoundingClientRect().top + 'px';
+	cursor.style.left = ( nextLetter || nextWord ).getBoundingClientRect()[ nextLetter ? 'left' : 'right' ] + 'px';
+});
 
 Game();
