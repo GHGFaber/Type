@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+    console.log(__dirname)
     res.sendFile(__dirname + `\\login.html`);
 });
 
@@ -95,6 +96,6 @@ app.get("/profile/:id", async (req, res) => {
     res.send(profile)
 })
 
-app.listen(3000, () => {
+app.listen('https://nocaps.onrender.com', () => {
     console.log('Server is running on 3000')
 })
