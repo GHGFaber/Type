@@ -1,5 +1,7 @@
 ### Type
 APPDEV2023 - CSUB, Arjun Ynostroza, Bryan Ayapantecatl, and Moises B. Fuentes
+## MAKE SURE TO INSTALL NODE FIRST AND FOREMOST
+
 ## Backend Dependencies
 Should be installed within Backend folder
 ```
