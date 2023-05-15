@@ -1,0 +1,84 @@
+body {
+    background-color: black !important;
+}
+div.word{
+    color: grey;
+    font-size: 40px;
+    display: inline-block;
+    padding: 10px 5px;
+}
+img#profile{
+    height:50px;
+    width: 50px;
+    float: right;
+}
+div#Game{
+    line-height: 35px;
+    overflow: hidden;
+    height: 109px;
+}
+
+div#newGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 75vw;
+}
+
+div#time{
+    width: 50%;
+    text-align: center;
+    font-size: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+div#cursor{
+    margin-top: 5px;
+    width:2px;
+    height: 40px;
+    background-color: blue;
+    position: fixed;
+    animation: blink 1s infinite;
+}
+.wrong{
+    color: red;
+}
+.right{
+    color: white;
+}
+#button{
+    margin-left: 50%;
+}
+#button button{
+    height: auto;
+    background-color: aqua;
+}
+#button button:hover{
+    transition: 5s;
+}
+
+#Game.over #text{
+    opacity: .5;
+    filter: blur(0px);
+
+}
+#Gamer.over:focus #cursor{
+    display: none;
+}
+#Game.over #focus-error{
+    display: none;
+}
