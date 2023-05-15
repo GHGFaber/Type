@@ -5,15 +5,7 @@ APPDEV2023 - CSUB, Arjun Ynostroza, Bryan Ayapantecatl, and Moises B. Fuentes
 ## Backend Dependencies
 Should be installed within Backend folder
 ```
-npm i express
-
-npm i body-parser
-
-npm i dotenv
-
-npm i mysql2
-
-npm i nodemon
+npm i express body-parser dotenv mysql2 nodemon jsonwebtoken bcrypt nodemon
 ```
 1. Create a .env file
 
@@ -21,11 +13,7 @@ npm i nodemon
 
 ## Frontend Dependencies
 ```
-npm i vue
-
-npm i bootstrap
-
-npm i axios
+npm i vue bootstrap axios jwt-decode
 ```
 1. Ensure dependencies are installed
 2. Run ```npm i @vue/cli``` within type folder
